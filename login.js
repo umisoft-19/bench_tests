@@ -1,6 +1,6 @@
 describe('Login to bench', () => {
     it('Logs in to bench', () => {
-        cy.visit('localhost:8000/login')
+        cy.visit('/login')
         cy.contains('Username')
         cy.get('input[name="username"]')
             .type('nakamura9a')
