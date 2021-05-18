@@ -1,4 +1,3 @@
-const { gzipSync } = require("zlib")
 const utils = require('../utils.js')
   
 describe("Journal Entries", () => {
