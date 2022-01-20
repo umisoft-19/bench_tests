@@ -2,14 +2,15 @@ describe('Login to bench', () => {
     it('Logs in to bench', () => {
         cy.visit('/login')
         cy.contains('Username')
+        cy.get('input[name="tenant_id"]')
+            .type('bench')
         cy.get('input[name="username"]')
-            .type('nakamura9a')
+            .type('caleb')
         cy.get('input[name="password"]')
             .type('audacity123')
         cy.get('button.btn-block')
             .click()
         cy.wait(500)
-        cy.url().should('include', '/home')
-        
+        cy.url().should('include', '/app/desktop')
     })
   })

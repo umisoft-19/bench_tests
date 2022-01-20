@@ -18,30 +18,3 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-
-
-Cypress.Commands.add('login', () => {
-    cy.visit("/login/");
-      cy.get("[name=csrfmiddlewaretoken]")
-        .should("exist")
-        .should("have.attr", "value")
-        .as("csrfToken");
-  
-      cy.get("@csrfToken").then((token) => {
-        cy.request({
-          method: "POST",
-          url: "/login/", 
-          form: true,
-          body: {
-            username: "nakamura9a",
-            password: "audacity123",
-          },
-          headers: {
-            "X-CSRFTOKEN": token,
-          },
-        });
-      });
-  
-      cy.getCookie("sessionid").should("exist");
-      cy.getCookie("csrftoken").should("exist");
-})

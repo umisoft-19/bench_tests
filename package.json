@@ -1,0 +1,22 @@
+{
+  "name": "bench_tests",
+  "version": "1.0.0",
+  "description": "integration tests for bench business tools",
+  "main": "login.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umisoft-19/bench_tests.git"
+  },
+  "author": "caleb kandoro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umisoft-19/bench_tests/issues"
+  },
+  "homepage": "https://github.com/umisoft-19/bench_tests#readme",
+  "dependencies": {
+    "cypress": "^9.3.1"
+  }
+}
