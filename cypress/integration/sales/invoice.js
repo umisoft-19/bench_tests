@@ -7,23 +7,25 @@ describe("Sales Invoices", () => {
   });
 
   it("should create a credit invoice", () => {
-   cy.visit('/create/invoicing/invoice/?cash_sale=False')
-   utils.select('customer', 1)
-   utils.select('product', 1)
+   cy.visit('/app/create/invoicing/invoice/?cash_sale=False')
+   utils.select('customer', "first")
+   utils.select('product', "first")
+   
    cy.get('.add-row-btn')
     .click()
-   cy.get('input[type="submit"]')
-    .click()
+    utils.select('ship_from', "first")
+    utils.submit()
     cy.url().should('include', 'update/invoicing/invoice')
   });
 
   it("should create a cash invoice", () => {
-    cy.visit('/create/invoicing/invoice/?cash_sale=True')
-    utils.select('product', 1)
+    cy.visit('/app/create/invoicing/invoice/?cash_sale=True')
+    utils.select('customer', "first")
+    utils.select('product', "first")
     cy.get('.add-row-btn')
       .click()
-    cy.get('input[type="submit"]')
-      .click()
+    utils.select('ship_from', "first")
+    utils.submit()
       cy.url().should('include', 'update/invoicing/invoice')
   });
 
