@@ -8,18 +8,14 @@ describe("Currency", () => {
     });
   
     it("should create a currency", () => {
-        cy.visit('/create/accounting/currency')
+        cy.visit('/app/create/accounting/currency')
         cy.get('#id_name')
             .type("MiDolla")
         cy.get('#id_symbol')
             .type("#")
-        cy.get('input[type="submit"]')
-            .click()
-        cy.url().should('include', 'list/accounting/currency')
-        cy.get('table .list-link:first')
-            .click()
-        cy.get('#delete-form button')
-            .click()
+        utils.submit()
+        cy.url().should('include', 'update/accounting/currency')
+        utils.delete()
     });
  
   });

@@ -8,24 +8,23 @@ describe("Journal Entries", () => {
     });
   
     it("should create a journal entry", () => {
-        cy.visit('/create/accounting/journalentry')
-        // cy.get('#id_date')
-        //     .type("2021-05-18")
-        utils.select('recorded_by', 1)
+        cy.visit('/app/create/accounting/journalentry')
+        // utils.setDate("date", "01/01/2022")
         cy.get('#id_memo')
             .type("Some description for a journal entry")
         utils.select('account', 4)
         cy.get("input[name='credit']")
+            .first()
             .type(10)
         cy.get('.add-row-btn')
             .click()
         utils.select('account', 31)
         cy.get("input[name='debit']")
+            .first()
             .type(10)
         cy.get('.add-row-btn')
             .click()
-        cy.get('input[type="submit"]')
-        .click()
+        utils.submit()
         cy.url().should('include', 'update/accounting/journalentry')
     });
  
