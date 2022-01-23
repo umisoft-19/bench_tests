@@ -10,7 +10,7 @@ const select = (field, option) => {
     // Initial field in form tends to be focused, so clicking on another input
     // ensures that focusing will trigger the dropdown.
     
-    cy.get('#title-text').click()
+    cy.get('#title-text').click({force: true})
     cy.get(`#${field}_visible_input`)
         .focus()
         .click()
